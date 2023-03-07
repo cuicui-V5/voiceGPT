@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>SSE</title>
+    </head>
+    <body>
+        <h3>获取服务端更新数据</h3>
+        <div id="result"></div>
+
+        <script>
+            var source = new EventSource("http://127.0.0.1:2222/sse");
+            source.onmessage = function (event) {
+                document.getElementById("result").innerHTML +=
+                    event.data + "<br>";
+            };
+        </script>
+    </body>
+</html>
